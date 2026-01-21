@@ -1,10 +1,26 @@
 from flask import Flask
 
 app = Flask(__name__)
+liste  = [("Bruno", "rouge"), ("Tom", "jaune"), ("Willian", "vert"), ("Nicolas", "Bleu")]
 
 @app.route("/")
+
 def index():
-    return """
+
+    template = ""
+
+    if liste != []:
+
+        template += f"<ul> Liste des prénoms"
+
+        for i in range(len(liste)):
+
+            template += f"<li> {liste[i][0]} </li>"
+
+        template += f"</ul>"
+
+
+    return f"""
     <!DOCTYPE html>
     <html lang="en">
     <head>
@@ -13,6 +29,8 @@ def index():
     </head>
     <body>
         Hello World !
+        {template}
+
     </body>
     </html>
     """
