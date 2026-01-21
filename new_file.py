@@ -1,11 +1,10 @@
 from flask import Flask
 
 app = Flask(__name__)
-
-liste = [("Bruno", "Rouge"), ("Tom", "Jaune"), ("Nicolas","Vert"), ("William", "Bordeau")]
-
+liste  = [("Bruno", "rouge"), ("Tom", "jaune"), ("Willian", "bordeaux"), ("Nicolas", "Bleu")]
 
 @app.route("/")
+
 def index():
     content =""
     content += f"<h1>Liste</h1>"
