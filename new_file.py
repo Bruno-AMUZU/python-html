@@ -1,20 +1,21 @@
-def create_index():
-    
-    # Ouvre (ou crée) un fichier en mode écriture
-    with open("index.html", "w") as f:
+from flask import Flask
 
-        f.write('<!DOCTYPE html>' + '\n')
-        f.write('<html lang="en">' + '\n')
-        f.write('<head>' + '\n')
-        f.write('    <meta charset="UTF-8">' + '\n')
-        f.write('    <meta name="viewport" content="width=device-width, initial-scale=1.0">' + '\n')
-        f.write('    <title>Document</title>' + '\n')
-        f.write('</head>' + '\n')
-        f.write('<body>' + '\n')
-        f.write('Hello World !' + '\n')
-        f.write('</body>' + '\n')
-        f.write('</html>' + '\n')
+app = Flask(__name__)
 
-    return True
+@app.route("/")
+def index():
+    return """
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Document</title>
+    </head>
+    <body>
+        Hello World !
+    </body>
+    </html>
+    """
 
-create_index()
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=5000, debug=True)
